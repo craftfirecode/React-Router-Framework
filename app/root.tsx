@@ -36,10 +36,16 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <nav>
             <ul>
                 <li>
-                <a href="/">Home</a>
+                    <a href="/">Home</a>
                 </li>
                 <li>
-                <a href="/about">About</a>
+                    <a href="/about">About</a>
+                </li>
+                <li>
+                    <a href="/blog/5">Blog 5</a>
+                </li>
+                <li>
+                    <a href="/blog/10">Blog 10</a>
                 </li>
             </ul>
         </nav>
