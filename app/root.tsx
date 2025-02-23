@@ -9,6 +9,7 @@ import {
 
 import type { Route } from "./+types/root";
 import "./app.css";
+import MegaMenu from "@/components/baseUI/Menu";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -49,6 +50,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 </li>
             </ul>
         </nav>
+        <MegaMenu />
         {children}
         <ScrollRestoration />
         <Scripts />
