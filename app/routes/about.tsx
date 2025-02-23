@@ -1,4 +1,5 @@
-import type { Route } from "./+types/about";
+import type {Route} from "./+types/about";
+import LayoutContainer from "@/layout/layoutContainer";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -25,8 +26,8 @@ export async function loader({ params }: Route.LoaderArgs) {
 export default function About({loaderData}: Route.ComponentProps) {
   const { data } = loaderData;
   return (
-    <div>
+      <LayoutContainer>
       <h1>{data.title}</h1>
-    </div>
+      </LayoutContainer>
   );
 }

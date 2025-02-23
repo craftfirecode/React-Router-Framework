@@ -1,6 +1,6 @@
-import type { Route } from "./+types/blog.$id";
+import LayoutContainer from "@/layout/layoutContainer";
+import type {Route} from "./+types/blog.$id";
 import {useParams} from "react-router";
-import LayoutBlog from "@/layout/layoutBlog";
 
 export function meta({}: Route.MetaArgs) {
     return [
@@ -29,11 +29,11 @@ export default function BlogIndex({loaderData}: Route.ComponentProps) {
     const { id } = useParams();
     return (
         <div>
-            <LayoutBlog>
+            <LayoutContainer>
                 <h1>Title: {data.title}</h1>
                 <h1>ID: {data.id}</h1>
                 useParams: {id}
-            </LayoutBlog>
+            </LayoutContainer>
         </div>
     );
 }
