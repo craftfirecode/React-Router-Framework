@@ -1,5 +1,4 @@
 import type { Route } from "./+types/about";
-import {Welcome} from "~/welcome/welcome";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -8,6 +7,25 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-export default function About() {
-  return <Welcome />;
+export async function loader({ params }: Route.LoaderArgs) {
+  try {
+    const response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    const data = await response.json();
+    return { data };
+  } catch (error) {
+    console.error('Fetch error:', error);
+    return { data: null };
+  }
+}
+
+export default function About({loaderData}: Route.ComponentProps) {
+  const { data } = loaderData;
+  return (
+    <div>
+      <h1>{data.title}</h1>
+    </div>
+  );
 }
