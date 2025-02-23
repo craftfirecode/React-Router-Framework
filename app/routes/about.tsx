@@ -14,6 +14,7 @@ export async function loader({ params }: Route.LoaderArgs) {
       throw new Error('Network response was not ok');
     }
     const data = await response.json();
+    console.log('Fetch data from ssr:', data);
     return { data };
   } catch (error) {
     console.error('Fetch error:', error);
