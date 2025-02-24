@@ -1,10 +1,12 @@
 import * as React from 'react';
 import {Menu} from '@base-ui-components/react/menu';
 import {Link} from "react-router";
+import {UserIcon} from "lucide-react";
+import {Button} from "@/components/ui/button";
 
 export default function MegaMenu() {
     return (
-        <nav className="bg-gray-100 py-2">
+        <nav className="bg-gray-100 py-4 m-4 rounded">
             <div className="container mx-auto flex gap-4 items-center">
                 <div>BRAND</div>
                 <Link to={"/"}>Home</Link>
@@ -12,31 +14,33 @@ export default function MegaMenu() {
                 <Menu.Root openOnHover>
                     <Menu.Trigger
                         className="flex h-10 items-center justify-center gap-1.5 rounded-md border border-gray-200 bg-gray-50 px-3.5 text-base font-medium text-gray-900 select-none hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-1 focus-visible:outline-blue-800 active:bg-gray-100 data-[popup-open]:bg-gray-100">
-                        Blog<ChevronDownIcon className="-mr-1"/>
+                        <UserIcon/>
+                        Account<ChevronDownIcon className="-mr-1"/>
                     </Menu.Trigger>
                     <Menu.Portal>
                         <Menu.Positioner className="outline-none" sideOffset={8}>
                             <Menu.Popup
-                                className="origin-[var(--transform-origin)] rounded-md bg-[canvas] py-1 text-gray-900 shadow-lg shadow-gray-200 outline outline-1 outline-gray-200 transition-[transform,scale,opacity] data-[ending-style]:scale-90 data-[ending-style]:opacity-0 data-[starting-style]:scale-90 data-[starting-style]:opacity-0 dark:shadow-none dark:-outline-offset-1 dark:outline-gray-300">
+                                className="origin-[var(--transform-origin)] rounded-md bg-[canvas] p-5 text-gray-900 shadow-lg shadow-gray-200 outline outline-1 outline-gray-200 transition-[transform,scale,opacity] data-[ending-style]:scale-90 data-[ending-style]:opacity-0 data-[starting-style]:scale-90 data-[starting-style]:opacity-0 dark:shadow-none dark:-outline-offset-1 dark:outline-gray-300">
                                 <Menu.Arrow
                                     className="data-[side=bottom]:top-[-8px] data-[side=left]:right-[-13px] data-[side=left]:rotate-90 data-[side=right]:left-[-13px] data-[side=right]:-rotate-90 data-[side=top]:bottom-[-8px] data-[side=top]:rotate-180">
                                     <ArrowSvg/>
                                 </Menu.Arrow>
+                                <Button className="w-[350px] text-[16px]" size="lg">Einloggen</Button>
                                 <Link to={"/blog/5"}>
                                     <Menu.Item
-                                        className="flex cursor-default py-2 pr-8 pl-4 text-sm leading-4 outline-none select-none data-[highlighted]:relative data-[highlighted]:z-0 data-[highlighted]:text-gray-50 data-[highlighted]:before:absolute data-[highlighted]:before:inset-x-1 data-[highlighted]:before:inset-y-0 data-[highlighted]:before:z-[-1] data-[highlighted]:before:rounded-sm data-[highlighted]:before:bg-gray-900">
+                                        className="flex cursor-default py-2 pr-8 pl-4 leading-4 outline-none select-none data-[highlighted]:relative data-[highlighted]:z-0 data-[highlighted]:text-gray-50 data-[highlighted]:before:absolute data-[highlighted]:before:inset-x-1 data-[highlighted]:before:inset-y-0 data-[highlighted]:before:z-[-1] data-[highlighted]:before:rounded-sm data-[highlighted]:before:bg-gray-900">
                                         Blog 5
                                     </Menu.Item>
                                 </Link>
                                 <Link to={"/blog/10"}>
                                     <Menu.Item
-                                        className="flex cursor-default py-2 pr-8 pl-4 text-sm leading-4 outline-none select-none data-[highlighted]:relative data-[highlighted]:z-0 data-[highlighted]:text-gray-50 data-[highlighted]:before:absolute data-[highlighted]:before:inset-x-1 data-[highlighted]:before:inset-y-0 data-[highlighted]:before:z-[-1] data-[highlighted]:before:rounded-sm data-[highlighted]:before:bg-gray-900">
+                                        className="flex cursor-default py-2 pr-8 pl-4 leading-4 outline-none select-none data-[highlighted]:relative data-[highlighted]:z-0 data-[highlighted]:text-gray-50 data-[highlighted]:before:absolute data-[highlighted]:before:inset-x-1 data-[highlighted]:before:inset-y-0 data-[highlighted]:before:z-[-1] data-[highlighted]:before:rounded-sm data-[highlighted]:before:bg-gray-900">
                                         Blog 10
                                     </Menu.Item>
                                 </Link>
                                 <Link to={"/blog/15"}>
                                     <Menu.Item
-                                        className="flex cursor-default py-2 pr-8 pl-4 text-sm leading-4 outline-none select-none data-[highlighted]:relative data-[highlighted]:z-0 data-[highlighted]:text-gray-50 data-[highlighted]:before:absolute data-[highlighted]:before:inset-x-1 data-[highlighted]:before:inset-y-0 data-[highlighted]:before:z-[-1] data-[highlighted]:before:rounded-sm data-[highlighted]:before:bg-gray-900">
+                                        className="flex cursor-default py-2 pr-8 pl-4 leading-4 outline-none select-none data-[highlighted]:relative data-[highlighted]:z-0 data-[highlighted]:text-gray-50 data-[highlighted]:before:absolute data-[highlighted]:before:inset-x-1 data-[highlighted]:before:inset-y-0 data-[highlighted]:before:z-[-1] data-[highlighted]:before:rounded-sm data-[highlighted]:before:bg-gray-900">
                                         Blog 15
                                     </Menu.Item>
                                 </Link>
