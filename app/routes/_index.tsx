@@ -11,20 +11,14 @@ export function meta({}: Route.MetaArgs) {
     ];
 }
 
-export default function Home() {
-    const [data, setData] = React.useState<{ title: string | null }>({ title: null });
 
-    useEffect(() => {
-        (async () => {
-            console.log('Home useEffect is fired');
-            try {
-                const response = await axios.get('https://jsonplaceholder.typicode.com/todos/1');
-                setData(response.data);
-            } catch (error) {
-                console.error('Error fetching data:', error);
-            }
-        })();
-    }, []);
+export async function loader({params,}: Route.ClientLoaderArgs) {
+    const response = await axios.get('https://jsonplaceholder.typicode.com/todos/1');
+    return response.data;
+}
+
+export default function Home({loaderData,}: Route.ComponentProps) {
+    const {title} : {title: string} = loaderData || { title: '' };
 
     return (
         <LayoutContainer>
@@ -35,7 +29,7 @@ export default function Home() {
                 and other best practices.
             </p>
             <Button>Click me</Button>
-            <div>CSR from useEffect & useState: {data && <span>{data.title}</span>}</div>
+            <div>CSR from useEffect & useState: {title && <span>{title}</span>}</div>
         </LayoutContainer>
     );
 }
