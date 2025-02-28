@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Menu} from '@base-ui-components/react/menu';
-import {Link} from "react-router";
+import {Link, NavLink} from "react-router";
 import {UserIcon} from "lucide-react";
 import {Button} from "@/components/ui/button";
 
@@ -9,8 +9,20 @@ export default function MegaMenu() {
         <nav className="bg-[#7c85ffdb] p-4 m-4 rounded container mx-auto flex items-center justify-between">
             <div className="flex items-center gap-4">
                 <span className="text-white font-bold">CraftFire.</span>
-                <Link className="text-black transition-colors duration-450 hover:text-white" to={"/"}>Home</Link>
-                <Link className="text-black transition-colors duration-450 hover:text-white" to={"/about"}>About</Link>
+                <NavLink
+                    className={({isActive}) =>
+                        isActive ? "text-white" : "text-black transition-colors duration-450 hover:text-white"
+                    }
+                    to={"/"}>
+                    Home
+                </NavLink>
+                <NavLink
+                    className={({isActive}) =>
+                        isActive ? "text-white" : "text-black transition-colors duration-450 hover:text-white"
+                    }
+                    to={"/About"}>
+                    About
+                </NavLink>
             </div>
             <div className="flex items-center gap-4">
                 <Menu.Root openOnHover>
