@@ -6,11 +6,13 @@ import {Button} from "@/components/ui/button";
 
 export default function MegaMenu() {
     return (
-        <nav className="bg-gray-100 py-4 m-4 rounded">
-            <div className="container mx-auto flex gap-5 items-center">
-                <div>BRAND</div>
-                <Link to={"/"}>Home</Link>
-                <Link to={"/about"}>About</Link>
+        <nav className="bg-[#7c85ffdb] p-4 m-4 rounded container mx-auto flex items-center justify-between">
+            <div className="flex items-center gap-4">
+                <span className="text-white font-bold">BRAND</span>
+                <Link className="text-black transition-colors duration-450 hover:text-white" to={"/"}>Home</Link>
+                <Link className="text-black transition-colors duration-450 hover:text-white" to={"/about"}>About</Link>
+            </div>
+            <div className="flex items-center gap-4">
                 <Menu.Root openOnHover>
                     <Menu.Trigger
                         className="flex h-10 items-center justify-center gap-4 rounded-md border border-gray-200 bg-gray-50 px-3.5 text-base font-medium text-gray-900 select-none hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-1 focus-visible:outline-blue-800 active:bg-gray-100 data-[popup-open]:bg-gray-100">
@@ -25,7 +27,7 @@ export default function MegaMenu() {
                                     className="data-[side=bottom]:top-[-8px] data-[side=left]:right-[-13px] data-[side=left]:rotate-90 data-[side=right]:left-[-13px] data-[side=right]:-rotate-90 data-[side=top]:bottom-[-8px] data-[side=top]:rotate-180">
                                     <ArrowSvg/>
                                 </Menu.Arrow>
-                                <Button className="mb-5 w-[350px] text-[16px]" size="lg">Einloggen</Button>
+                                <Button className="mb-5 w-[200px] text-[16px]" size="lg">Einloggen</Button>
                                 <div className="flex flex-col gap-3">
                                     <Link to={"/blog/5"}>
                                         <Menu.Item

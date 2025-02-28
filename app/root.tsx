@@ -1,4 +1,4 @@
-import {isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration,} from "react-router";
+import {isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration, useLocation,} from "react-router";
 import type {Route} from "./+types/root";
 import "./app.css";
 import MegaMenu from "@/components/baseUI/Menu";
@@ -17,6 +17,9 @@ export const links: Route.LinksFunction = () => [
 ];
 
 export function Layout({children}: { children: React.ReactNode }) {
+    const location = useLocation();
+    const isIndexPage = location.pathname === "/";
+
     return (
         <html lang="en">
         <head>
@@ -26,7 +29,13 @@ export function Layout({children}: { children: React.ReactNode }) {
             <Links/>
         </head>
         <body>
-        <MegaMenu/>
+        {isIndexPage ? (
+            <div className="absolute start-0 right-0">
+                <MegaMenu/>
+            </div>
+        ) : (
+            <MegaMenu/>
+        )}
         {children}
         <ScrollRestoration/>
         <Scripts/>
