@@ -8,7 +8,7 @@ export default function MegaMenu() {
     return (
         <nav className="bg-[#7c85ffdb] p-4 m-4 rounded container mx-auto flex items-center justify-between">
             <div className="flex items-center gap-4">
-                <span className="text-white font-bold">BRAND</span>
+                <span className="text-white font-bold">CraftFire.</span>
                 <Link className="text-black transition-colors duration-450 hover:text-white" to={"/"}>Home</Link>
                 <Link className="text-black transition-colors duration-450 hover:text-white" to={"/about"}>About</Link>
             </div>

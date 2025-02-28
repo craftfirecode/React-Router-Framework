@@ -29,7 +29,8 @@ export default function Home({loaderData,}: Route.ComponentProps) {
     return (
         <>
             <div className="h-[70vh] bg-cover bg-center">
-                <img src="/public/hero-bg.webp" alt="WebP rules." className="w-full h-full object-cover"/>
+                <img src="/public/hero-bg.webp" alt="Hero section background image"
+                     className="w-full h-full object-cover"/>
             </div>
             <LayoutContainer>
                 <h1>Welcome to React Router!</h1>
