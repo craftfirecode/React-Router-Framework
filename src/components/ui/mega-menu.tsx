@@ -47,7 +47,11 @@ export default function MegaMenu() {
                                     className="data-[side=bottom]:top-[-8px] data-[side=left]:right-[-13px] data-[side=left]:rotate-90 data-[side=right]:left-[-13px] data-[side=right]:-rotate-90 data-[side=top]:bottom-[-8px] data-[side=top]:rotate-180">
                                     <ArrowSvg/>
                                 </Menu.Arrow>
-                                <Button className="mb-5 w-[200px] text-[16px]" size="lg">Einloggen</Button>
+                                <Link to={"/account"}>
+                                    <Menu.Item>
+                                        <Button className="mb-5 w-[200px] text-[16px]" size="lg">Einloggen</Button>
+                                    </Menu.Item>
+                                </Link>
                                 <div className="flex flex-col gap-3">
                                     <Link to={"/account/5"}>
                                         <Menu.Item
