@@ -23,6 +23,13 @@ export default function MegaMenu() {
                     to={"/About"}>
                     About
                 </NavLink>
+                <NavLink
+                    className={({isActive}) =>
+                        isActive ? "text-white" : "text-black transition-colors duration-450 hover:text-white"
+                    }
+                    to={"/bike"}>
+                    Bike
+                </NavLink>
             </div>
             <div className="flex items-center gap-4">
                 <Menu.Root openOnHover>
