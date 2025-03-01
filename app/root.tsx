@@ -1,7 +1,7 @@
 import {isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration, useLocation,} from "react-router";
 import type {Route} from "./+types/root";
 import "./app.css";
-import MegaMenu from "@/components/baseUI/Menu";
+import MegaMenu from "@/components/ui/mega-menu";
 
 export function Layout({children}: { children: React.ReactNode }) {
     const location = useLocation();
