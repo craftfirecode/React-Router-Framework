@@ -1,4 +1,4 @@
-import type {Route} from "./+types/bike";
+import type {Route} from "./+types/team";
 import axios from "axios";
 import LayoutContainer from "@/layout/layoutContainer";
 import {useState} from "react";

@@ -2,11 +2,13 @@ import {isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration, u
 import type {Route} from "./+types/root";
 import "./app.css";
 import MegaMenu from "@/components/ui/mega-menu";
+import {MegaMenuBreadcrumb} from "@/components/ui/mega-menu-breadcrumb";
+import LayoutContainer from "@/layout/layoutContainer";
 
 export function Layout({children}: { children: React.ReactNode }) {
     const location = useLocation();
     const isIndexPage = location.pathname === "/";
-
+    const isAccountPage = /^\/account(\/|$)/.test(location.pathname);
     return (
         <html lang="en">
         <head>
@@ -22,6 +24,13 @@ export function Layout({children}: { children: React.ReactNode }) {
             </div>
         ) : (
             <MegaMenu/>
+        )}
+        {isAccountPage && (
+            <div className="mb-5">
+                <LayoutContainer>
+                    <MegaMenuBreadcrumb/>
+                </LayoutContainer>
+            </div>
         )}
         {children}
         <ScrollRestoration/>
