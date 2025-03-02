@@ -1,4 +1,4 @@
-import type {Route} from "./+types/_protected.tax";
+import type {Route} from "./+types/_protected.account.tax";
 
 export function meta({}: Route.MetaArgs) {
     return [

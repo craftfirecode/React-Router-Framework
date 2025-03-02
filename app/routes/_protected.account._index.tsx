@@ -1,6 +1,6 @@
 import {useContext} from "react";
 
-import type {Route} from "./+types/_protected.account";
+import type {Route} from "./+types/_protected.account._index";
 import {SupabaseAuthContext} from "~/lib/supabaseAuthProvider";
 import {LogoutButton} from "@/components/LogoutButton";
 import {Link} from "react-router";
@@ -21,7 +21,7 @@ export default function AccountPage() {
                 <div className="flex-1 flex flex-col items-center gap-16 min-h-0">
                     <div>
                         <h1>Welcome {user?.email}!</h1>
-                        <Link to={"/tax"}>TAX 1</Link>
+                        <Link to={"/account/tax"}>TAX 1</Link>
                     </div>
                     <div>
                         <LogoutButton/>
