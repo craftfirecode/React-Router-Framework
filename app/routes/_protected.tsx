@@ -13,7 +13,7 @@ export default function ProtectedAccountInvoiceIndex() {
     }, [user, session, isAuthenticating]);
 
     if (!user) {
-        return null; // Render nothing while redirecting
+        return null;
     }
 
     return <Outlet/>;
