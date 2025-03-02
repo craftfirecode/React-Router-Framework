@@ -1,5 +1,5 @@
 import LayoutContainer from "@/layout/layoutContainer";
-import type {Route} from "./+types/account";
+import type {Route} from "./+types/blog._index";
 import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/tabs";
 import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} from "@/components/ui/card";
 import {Button} from "@/components/ui/button";
