@@ -9,7 +9,9 @@ export default function MegaMenu() {
         <nav
             className="bg-[#7c85ffdb] relative z-1 p-4 m-4 rounded container mx-auto flex items-center justify-between">
             <div className="flex items-center gap-4">
-                <span className="text-white font-bold">CraftFire.</span>
+                <Link to="/">
+                    <img src="/brand.png" className="h-[20px]" alt="Logo"/>
+                </Link>
                 <NavLink
                     className={({isActive}) =>
                         isActive ? "text-white" : "text-black transition-colors duration-450 hover:text-white"
