@@ -4,6 +4,7 @@ import type {Route} from "./+types/_protected.account._index";
 import {SupabaseAuthContext} from "~/lib/supabaseAuthProvider";
 import {LogoutButton} from "@/components/LogoutButton";
 import {Link} from "react-router";
+import {Button} from "@/components/ui/button";
 
 export function meta({}: Route.MetaArgs) {
     return [
@@ -21,7 +22,9 @@ export default function AccountPage() {
                 <div className="flex-1 flex flex-col items-center gap-16 min-h-0">
                     <div>
                         <h1>Welcome {user?.email}!</h1>
-                        <Link to={"/account/tax"}>TAX 1</Link>
+                        <Link to={"/account/invoice"}>
+                            <Button>Invoice</Button>
+                        </Link>
                     </div>
                     <div>
                         <LogoutButton/>
