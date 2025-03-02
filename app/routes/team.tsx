@@ -18,14 +18,14 @@ clientLoader.hydrate = true as const;
 
 export default function Product({loaderData}: Route.ComponentProps) {
     const {title, csr} = loaderData
-    console.log(loaderData)
-    const [name, setName] = useState("Muster");
+    const [name, setName] = useState("useState String");
     return (
         <LayoutContainer>
-            {title}<br/>
-            {csr}<br/>
-            {name}
+            <b>Render SSR:</b> {title}<br/>
+            <b>Render CSR:</b> {csr}<br/>
+            <b>Render useState:</b> {name}
             <div>
+                <b>Render accordion in SSR:</b>
                 <Accordion type="single" collapsible className="w-full">
                     <AccordionItem value="item-1">
                         <AccordionTrigger>Is it accessible?</AccordionTrigger>

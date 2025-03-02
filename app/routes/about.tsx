@@ -23,7 +23,7 @@ export default function About({loaderData}: Route.ComponentProps) {
     const {title} = loaderData;
     return (
         <LayoutContainer>
-            <h1>{title}</h1>
+            <b>Render SSR:</b> {title}
         </LayoutContainer>
     );
 }

@@ -41,7 +41,7 @@ export default function Home({loaderData,}: Route.ComponentProps) {
                     and other best practices.
                 </p>
                 <Button>Click me</Button>
-                <div>CSR from useEffect & useState: {title && <span>{title}</span>}</div>
+                <div>API Response: {title && <span>{title}</span>}</div>
             </LayoutContainer>
         </>
 
