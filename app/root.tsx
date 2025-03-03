@@ -10,6 +10,7 @@ export function Layout({children}: { children: React.ReactNode }) {
     const location = useLocation();
     const isIndexPage = location.pathname === "/";
     const isAccountPage = /^\/account(\/|$)/.test(location.pathname);
+    const isBlogPage = /^\/blog(\/|$)/.test(location.pathname);
     return (
         <html lang="en">
         <head>
@@ -27,6 +28,13 @@ export function Layout({children}: { children: React.ReactNode }) {
             <MegaMenu/>
         )}
         {isAccountPage && (
+            <div className="mb-5">
+                <LayoutContainer>
+                    <MegaMenuBreadcrumb/>
+                </LayoutContainer>
+            </div>
+        )}
+        {isBlogPage && (
             <div className="mb-5">
                 <LayoutContainer>
                     <MegaMenuBreadcrumb/>
