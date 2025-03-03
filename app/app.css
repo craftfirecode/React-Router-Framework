@@ -183,3 +183,15 @@ body {
     background-size: 200% 200%; /* Vergrößert den Hintergrund für sanfte Bewegung */
     animation: gradient-spin 5s linear infinite; /* Animation für Rotation */
 }
+
+@keyframes gradient-spin {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
