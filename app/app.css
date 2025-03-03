@@ -9,10 +9,29 @@
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
+@font-face {
+    font-family: 'Open Sans';
+    src: url('/fonts/Roboto-Bold.ttf') format('ttf');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('/fonts/OpenSans-Regular.ttf') format('ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+body {
+    font-family: 'CustomFont', sans-serif;
+}
+
 html,
 body {
     @apply bg-white text-[16px] dark:bg-gray-950;
-
+    font-family: "Open Sans", serif;
     @media (prefers-color-scheme: dark) {
         color-scheme: dark;
     }
@@ -139,6 +158,8 @@ body {
 
     h1 {
         @apply text-[60px];
+        font-family: "Roboto", serif;
+
     }
 
     h2 {
