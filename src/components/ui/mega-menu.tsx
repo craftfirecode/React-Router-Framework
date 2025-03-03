@@ -3,8 +3,15 @@ import {Menu} from '@base-ui-components/react/menu';
 import {Link, NavLink} from "react-router";
 import {UserIcon} from "lucide-react";
 import {Button} from "@/components/ui/button";
+import {Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger} from "@/components/ui/sheet";
 
 export default function MegaMenu() {
+    const [isSheetOpen, setIsSheetOpen] = React.useState(false);
+
+    const handleNavLinkClick = () => {
+        setIsSheetOpen(false);
+    };
+
     return (
         <nav
             className="bg-[#7c85ffdb] relative z-1 p-4 m-4 rounded container mx-auto flex items-center justify-between">
@@ -12,43 +19,46 @@ export default function MegaMenu() {
                 <Link to="/">
                     <img src="/brand.png" className="h-[20px]" alt="Logo"/>
                 </Link>
-                <NavLink
-                    className={({isActive}) =>
-                        isActive ? "text-white" : "text-black transition-colors duration-450 hover:text-white"
-                    }
-                    to={"/"}>
-                    Home
-                </NavLink>
-                <NavLink
-                    className={({isActive}) =>
-                        isActive ? "text-white" : "text-black transition-colors duration-450 hover:text-white"
-                    }
-                    to={"/About"}>
-                    About
-                </NavLink>
-                <NavLink
-                    className={({isActive}) =>
-                        isActive ? "text-white" : "text-black transition-colors duration-450 hover:text-white"
-                    }
-                    to={"/team"}>
-                    Team
-                </NavLink>
-                <NavLink
-                    className={({isActive}) =>
-                        isActive ? "text-white" : "text-black transition-colors duration-450 hover:text-white"
-                    }
-                    to={"/impressum"}>
-                    Impressum
-                </NavLink>
-                <NavLink
-                    className={({isActive}) =>
-                        isActive ? "text-white" : "text-black transition-colors duration-450 hover:text-white"
-                    }
-                    to={"/datenschutz"}>
-                    Datenschutz
-                </NavLink>
+                <div className="hidden lg:flex gap-4">
+                    <NavLink
+                        className={({isActive}) =>
+                            isActive ? "text-white" : "text-black transition-colors duration-450 hover:text-white"
+                        }
+                        to={"/"}>
+                        Home
+                    </NavLink>
+                    <NavLink
+                        className={({isActive}) =>
+                            isActive ? "text-white" : "text-black transition-colors duration-450 hover:text-white"
+                        }
+                        to={"/About"}>
+                        About
+                    </NavLink>
+                    <NavLink
+                        className={({isActive}) =>
+                            isActive ? "text-white" : "text-black transition-colors duration-450 hover:text-white"
+                        }
+                        to={"/team"}>
+                        Team
+                    </NavLink>
+                    <NavLink
+                        className={({isActive}) =>
+                            isActive ? "text-white" : "text-black transition-colors duration-450 hover:text-white"
+                        }
+                        to={"/impressum"}>
+                        Impressum
+                    </NavLink>
+                    <NavLink
+                        className={({isActive}) =>
+                            isActive ? "text-white" : "text-black transition-colors duration-450 hover:text-white"
+                        }
+                        to={"/datenschutz"}>
+                        Datenschutz
+                    </NavLink>
+                </div>
+
             </div>
-            <div className="flex items-center gap-4">
+            <div className="hidden lg:flex items-center gap-4">
                 <Menu.Root openOnHover>
                     <Menu.Trigger
                         className="flex h-10 items-center justify-center gap-4 rounded-md border border-gray-200 bg-gray-50 px-3.5 text-base font-medium text-gray-900 select-none hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-1 focus-visible:outline-blue-800 active:bg-gray-100 data-[popup-open]:bg-gray-100">
@@ -82,7 +92,6 @@ export default function MegaMenu() {
                                         </Menu.Item>
                                     </Link>
                                 </div>
-
                             </Menu.Popup>
                         </Menu.Positioner>
                     </Menu.Portal>
@@ -110,6 +119,66 @@ export default function MegaMenu() {
                         </Menu.Positioner>
                     </Menu.Portal>
                 </Menu.Root>
+            </div>
+            <div className="flex lg:hidden">
+                <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
+                    <SheetTrigger>Open</SheetTrigger>
+                    <SheetContent>
+                        <SheetHeader>
+                            <SheetTitle className="text-[16px]">Menu</SheetTitle>
+                            <div className="mt-3 flex flex-col gap-3">
+                                <NavLink
+                                    className={({isActive}) =>
+                                        isActive ? "text-black" : "text-gray-500 transition-colors duration-450 hover:text-black"
+                                    }
+                                    to={"/"}
+                                    onClick={handleNavLinkClick}>
+                                    Home
+                                </NavLink>
+                                <NavLink
+                                    className={({isActive}) =>
+                                        isActive ? "text-black" : "text-gray-500 transition-colors duration-450 hover:text-black"
+                                    }
+                                    to={"/About"}
+                                    onClick={handleNavLinkClick}>
+                                    About
+                                </NavLink>
+                                <NavLink
+                                    className={({isActive}) =>
+                                        isActive ? "text-black" : "text-gray-500 transition-colors duration-450 hover:text-black"
+                                    }
+                                    to={"/team"}
+                                    onClick={handleNavLinkClick}>
+                                    Team
+                                </NavLink>
+                                <NavLink
+                                    className={({isActive}) =>
+                                        isActive ? "text-black" : "text-gray-500 transition-colors duration-450 hover:text-black"
+                                    }
+                                    to={"/blog"}
+                                    onClick={handleNavLinkClick}>
+                                    Blog
+                                </NavLink>
+                                <NavLink
+                                    className={({isActive}) =>
+                                        isActive ? "text-black" : "text-gray-500 transition-colors duration-450 hover:text-black"
+                                    }
+                                    to={"/impressum"}
+                                    onClick={handleNavLinkClick}>
+                                    Impressum
+                                </NavLink>
+                                <NavLink
+                                    className={({isActive}) =>
+                                        isActive ? "text-black" : "text-gray-500 transition-colors duration-450 hover:text-black"
+                                    }
+                                    to={"/datenschutz"}
+                                    onClick={handleNavLinkClick}>
+                                    Datenschutz
+                                </NavLink>
+                            </div>
+                        </SheetHeader>
+                    </SheetContent>
+                </Sheet>
             </div>
         </nav>
     );
