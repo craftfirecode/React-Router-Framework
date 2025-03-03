@@ -1,5 +1,4 @@
 import type {Route} from "../+types/root";
-import {Button} from "@/components/ui/button";
 import React from "react";
 import axios from "axios";
 import LayoutContainer from "@/layout/layoutContainer";
@@ -35,18 +34,13 @@ export default function Home({loaderData,}: Route.ComponentProps) {
                 <div className="scroll-down"></div>
             </div>
             <LayoutContainer>
-                <h1>Welcome to React Router!</h1>
-                <p>
-                    This is a new React Router app. It uses the latest version of
-                    React Router and is pre-configured with server-side rendering
-                    and other best practices.
-                </p>
-                <Button>Click me</Button>
-                <div>API Response: {title && <span>{title}</span>}</div>
-                <div className="gap-4 grid md:grid-cols-2 xl:grid-cols-3">
-                    <CardFx blogID="5"/>
-                    <CardFx blogID="10"/>
-                    <CardFx blogID="15"/>
+                <div>
+                    <div>{title && <span>{title}</span>}</div>
+                    <div className="gap-4 grid md:grid-cols-2 xl:grid-cols-3">
+                        <CardFx blogID="5"/>
+                        <CardFx blogID="10"/>
+                        <CardFx blogID="15"/>
+                    </div>
                 </div>
             </LayoutContainer>
         </>

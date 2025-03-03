@@ -29,14 +29,14 @@ export function Layout({children}: { children: React.ReactNode }) {
         )}
         {isAccountPage && (
             <div className="mb-5">
-                <LayoutContainer>
+                <LayoutContainer className="my-0">
                     <MegaMenuBreadcrumb/>
                 </LayoutContainer>
             </div>
         )}
         {isBlogPage && (
             <div className="mb-5">
-                <LayoutContainer>
+                <LayoutContainer className="my-0">
                     <MegaMenuBreadcrumb/>
                 </LayoutContainer>
             </div>
