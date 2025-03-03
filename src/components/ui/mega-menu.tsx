@@ -33,6 +33,20 @@ export default function MegaMenu() {
                     to={"/team"}>
                     Team
                 </NavLink>
+                <NavLink
+                    className={({isActive}) =>
+                        isActive ? "text-white" : "text-black transition-colors duration-450 hover:text-white"
+                    }
+                    to={"/impressum"}>
+                    Impressum
+                </NavLink>
+                <NavLink
+                    className={({isActive}) =>
+                        isActive ? "text-white" : "text-black transition-colors duration-450 hover:text-white"
+                    }
+                    to={"/datenschutz"}>
+                    Datenschutz
+                </NavLink>
             </div>
             <div className="flex items-center gap-4">
                 <Menu.Root openOnHover>
