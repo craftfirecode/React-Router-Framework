@@ -35,7 +35,7 @@ export default function Home({loaderData,}: Route.ComponentProps) {
             </div>
             <LayoutContainer>
                 <div>
-                    <div>{title && <span>{title}</span>}</div>
+                    <h1>{title}</h1>
                     <div className="gap-4 grid md:grid-cols-2 xl:grid-cols-3">
                         <CardFx blogID="5"/>
                         <CardFx blogID="10"/>

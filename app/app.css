@@ -11,7 +11,7 @@
 
 html,
 body {
-    @apply bg-white dark:bg-gray-950;
+    @apply bg-white text-[16px] dark:bg-gray-950;
 
     @media (prefers-color-scheme: dark) {
         color-scheme: dark;
@@ -135,6 +135,58 @@ body {
 
     body {
         @apply bg-background text-foreground;
+    }
+
+    h1 {
+        @apply text-[60px];
+    }
+
+    h2 {
+        @apply text-[48px];
+    }
+
+    h3 {
+        @apply text-[36px];
+    }
+
+    h4 {
+        @apply text-[28px];
+    }
+
+    h5 {
+        @apply text-[20px];
+    }
+
+    h6 {
+        @apply text-[16px];
+    }
+
+    .subheading-2 {
+        @apply text-[16px];
+    }
+
+    .subheading-1 {
+        @apply text-[15px];
+    }
+
+    .body-2 {
+        @apply text-[14px];
+    }
+
+    .body-1 {
+        @apply text-[130px];
+    }
+
+    .caption {
+        @apply text-[12px];
+    }
+
+    .button {
+        @apply text-[14px];
+    }
+
+    .overline {
+        @apply text-[10px];
     }
 }
 
