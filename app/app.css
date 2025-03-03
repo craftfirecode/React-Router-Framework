@@ -174,3 +174,12 @@ body {
         transform: translate(-50%, 16px);
     }
 }
+
+.border-fx {
+    position: relative;
+    overflow: hidden;
+    padding: 2px;
+    background: linear-gradient(to right, #ff00ff, #00ffff, #ffff00, #ff00ff);
+    background-size: 200% 200%; /* Vergrößert den Hintergrund für sanfte Bewegung */
+    animation: gradient-spin 5s linear infinite; /* Animation für Rotation */
+}

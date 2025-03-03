@@ -3,6 +3,7 @@ import {Button} from "@/components/ui/button";
 import React from "react";
 import axios from "axios";
 import LayoutContainer from "@/layout/layoutContainer";
+import {CardFx} from "@/components/ui/card-fx";
 
 export function meta({}: Route.MetaArgs) {
     return [
@@ -42,6 +43,11 @@ export default function Home({loaderData,}: Route.ComponentProps) {
                 </p>
                 <Button>Click me</Button>
                 <div>API Response: {title && <span>{title}</span>}</div>
+                <div className="gap-4 grid md:grid-cols-2 xl:grid-cols-3">
+                    <CardFx blogID="5"/>
+                    <CardFx blogID="10"/>
+                    <CardFx blogID="15"/>
+                </div>
             </LayoutContainer>
         </>
 
