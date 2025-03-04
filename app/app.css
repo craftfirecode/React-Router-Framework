@@ -147,11 +147,6 @@ body {
     --color-sidebar-ring: var(--sidebar-ring);
 }
 
-/*.container {*/
-/*    padding-left: 15px;*/
-/*    padding-right: 15px;*/
-/*}*/
-
 @layer base {
     * {
         @apply border-border outline-ring/50;
