@@ -110,9 +110,9 @@ export default function MegaMenu() {
                 <div className="flex lg:hidden">
                     <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
                         <SheetTrigger asChild>
-                            <Button type="button" name="Menu button">
+                            <button aria-label="Open menu" type="button" name="Menu button">
                                 <MenuIcon/>
-                            </Button>
+                            </button>
                         </SheetTrigger>
                         <SheetContent>
                             <SheetHeader>
