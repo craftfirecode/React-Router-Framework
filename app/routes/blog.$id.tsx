@@ -1,7 +1,7 @@
 import LayoutContainer from "@/layout/layoutContainer";
 import type {Route} from "./+types/blog.$id";
 import {useParams} from "react-router";
-import axios from "axios";
+import {ApiPlaceholder} from "~/api/placeholder";
 
 export function meta({}: Route.MetaArgs) {
     return [
@@ -12,8 +12,7 @@ export function meta({}: Route.MetaArgs) {
 
 export async function loader({params}: Route.LoaderArgs) {
     try {
-        const response = await axios.get(`https://jsonplaceholder.typicode.com/todos/${params.id}`);
-        return response.data;
+        return await ApiPlaceholder(params.id);
     } catch (error) {
         console.error(error);
         return {data: null};
