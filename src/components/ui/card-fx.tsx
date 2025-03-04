@@ -13,7 +13,7 @@ export const CardFx = ({blogID}: { blogID: string }) => {
                     />
                 </Link>
                 <div className="p-4">
-                    <h6 className="text-black">Title</h6>
+                    <div className="text-black">Title</div>
                     <p className="text-dark text-[14px] mt-2">description</p>
                     <Link to={"/blog/" + blogID}>
                         <Button>Link</Button>
