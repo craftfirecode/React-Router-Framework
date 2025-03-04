@@ -1,8 +1,12 @@
-import {supabaseClient} from "~/lib/supabaseClient";
-
 export function LogoutButton() {
     const signOut = async () => {
-        await supabaseClient.auth.signOut();
+        // await supabaseClient.auth.signOut();
+        // FIX supabaseClient.auth.signOut greift nicht immer
+        Object.keys(localStorage).forEach((key) => {
+            if (key.includes('sxsqeyhzwaavyyxvoxdg')) {
+                localStorage.removeItem(key);
+            }
+        });
         location.replace("/");
     };
 
