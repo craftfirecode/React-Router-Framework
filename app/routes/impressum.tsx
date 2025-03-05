@@ -1,4 +1,12 @@
 import LayoutContainer from "@/layout/layoutContainer";
+import type {Route} from "../../.react-router/types/app/routes/+types/team";
+
+export function meta({}: Route.MetaArgs) {
+    return [
+        {title: "Impressum"},
+        {name: "description", content: "Welcome to React Router!"},
+    ];
+}
 
 export default function impressumPage() {
     return (

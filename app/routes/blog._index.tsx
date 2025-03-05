@@ -5,7 +5,7 @@ import React from "react";
 
 export function meta({}: Route.MetaArgs) {
     return [
-        {title: "About"},
+        {title: "Blog"},
         {name: "description", content: "Welcome to React Router!"},
     ];
 }

@@ -3,9 +3,9 @@ import type {Route} from "./+types/blog.$id";
 import {useParams} from "react-router";
 import {ApiPlaceholder} from "~/api/placeholder";
 
-export function meta({}: Route.MetaArgs) {
+export function meta({params}: Route.MetaArgs) {
     return [
-        {title: "About"},
+        {title: `Blog ${params.id}`},
         {name: "description", content: "Welcome to React Router!"},
     ];
 }

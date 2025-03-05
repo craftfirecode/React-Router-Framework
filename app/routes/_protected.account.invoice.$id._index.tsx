@@ -1,5 +1,13 @@
 import {Link, useParams} from "react-router";
 import {Button} from "@/components/ui/button";
+import type {Route} from "../../.react-router/types/app/routes/+types/_protected.account._index";
+
+export function meta({params}: Route.MetaArgs) {
+    return [
+        {title: `Invoice ${params.id}`},
+        {name: "description", content: "Welcome to React Router!"},
+    ];
+}
 
 export default function AccountInvoiceDemoPage() {
     const {id} = useParams();

@@ -4,6 +4,13 @@ import LayoutContainer from "@/layout/layoutContainer";
 import {useState} from "react";
 import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/components/ui/accordion";
 
+export function meta({}: Route.MetaArgs) {
+    return [
+        {title: "Team"},
+        {name: "description", content: "Welcome to React Router!"},
+    ];
+}
+
 export async function loader({params}: Route.LoaderArgs) {
     let response = await axios.get(`https://jsonplaceholder.typicode.com/posts/1`);
     return response.data;

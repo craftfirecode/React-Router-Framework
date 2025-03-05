@@ -4,7 +4,7 @@ import {Button} from "@/components/ui/button";
 
 export function meta({}: Route.MetaArgs) {
     return [
-        {title: "Account"},
+        {title: "Invoice overview"},
         {name: "description", content: "Your account"},
     ];
 }

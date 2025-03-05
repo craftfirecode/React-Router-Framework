@@ -6,7 +6,7 @@ import {CardFx} from "@/components/ui/card-fx";
 
 export function meta({}: Route.MetaArgs) {
     return [
-        {title: "Home"},
+        {title: "TechHUB"},
         {name: "description", content: "Welcome to React Router!"},
     ];
 }
