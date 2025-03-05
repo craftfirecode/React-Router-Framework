@@ -1,6 +1,6 @@
 import {useContext, useEffect} from "react";
 import {Outlet} from "react-router";
-import {SupabaseAuthContext} from "~/lib/supabaseAuthProvider";
+import {SupabaseAuthContext} from "@/lib/supabaseAuthProvider";
 
 export default function ProtectedAccountOutlet() {
     const {user, isAuthenticating} = useContext(SupabaseAuthContext);

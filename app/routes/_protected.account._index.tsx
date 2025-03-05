@@ -1,8 +1,8 @@
 import {useContext} from "react";
 
 import type {Route} from "./+types/_protected.account._index";
-import {SupabaseAuthContext} from "~/lib/supabaseAuthProvider";
-import {LogoutButton} from "@/components/LogoutButton";
+import {SupabaseAuthContext} from "@/lib/supabaseAuthProvider";
+import {LogoutButton} from "@/components/supabase/LogoutButton";
 import {Link} from "react-router";
 import {Button} from "@/components/ui/button";
 import {ApiPlaceholder} from "~/api/placeholder";
@@ -26,7 +26,6 @@ export async function loader({params}: Route.LoaderArgs) {
 export default function AccountPage({loaderData}: Route.ComponentProps) {
     const {title} = loaderData
     const {user} = useContext(SupabaseAuthContext);
-    console.log(title);
     return (
         user && (
             <main className="flex items-center justify-center pt-16 pb-4">

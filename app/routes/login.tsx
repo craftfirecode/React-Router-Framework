@@ -1,9 +1,9 @@
 import {useContext, useEffect} from "react";
 import {useNavigate} from "react-router";
-import {SupabaseAuthContext} from "~/lib/supabaseAuthProvider";
+import {SupabaseAuthContext} from "@/lib/supabaseAuthProvider";
 import type {Route} from "./+types/login";
 import {Auth} from "@supabase/auth-ui-react";
-import {supabaseClient} from "~/lib/supabaseClient";
+import {supabaseClient} from "@/lib/supabaseClient";
 
 export function meta({}: Route.MetaArgs) {
     return [{title: "Login"}, {name: "description", content: "login"}];
