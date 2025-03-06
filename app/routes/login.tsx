@@ -1,35 +1,43 @@
-import {useContext, useEffect} from "react";
-import {useNavigate} from "react-router";
-import {SupabaseAuthContext} from "@/lib/supabaseAuthProvider";
 import type {Route} from "./+types/login";
-import {Auth} from "@supabase/auth-ui-react";
-import {supabaseClient} from "@/lib/supabaseClient";
+import {createServerClient, parseCookieHeader, serializeCookieHeader} from "@supabase/ssr";
 
 export function meta({}: Route.MetaArgs) {
     return [{title: "Login"}, {name: "description", content: "login"}];
 }
 
-export default function LoginPage() {
-    const {user, isAuthenticating} = useContext(SupabaseAuthContext);
-    const navigate = useNavigate();
-    useEffect(() => {
-        if (user && !isAuthenticating) {
-            navigate("/account");
-        }
-    }, [user, isAuthenticating]);
+export async function loader({request}: any) {
+    const headers = new Headers()
+
+    const supabase = createServerClient(import.meta.env.VITE_SUPABASE_API_URL as string, import.meta.env.VITE_SUPABASE_ANON_KEY as string, {
+        cookies: {
+            getAll() {
+                return parseCookieHeader(request.headers.get('Cookie') ?? '')
+            },
+            setAll(cookiesToSet) {
+                cookiesToSet.forEach(({name, value, options}) =>
+                    headers.append('Set-Cookie', serializeCookieHeader(name, value, options))
+                )
+            },
+        },
+    })
+    const {data, error} = await supabase.auth.signInWithPassword({
+        email: 'demo@demo.demo',
+        password: 'demo',
+    })
+
+    console.log(data)
+}
+
+export default function LoginPage({loaderData}: Route.ComponentProps) {
+
     return (
-        !user &&
-        !isAuthenticating && (
-            <main className="flex items-center justify-center pt-16 pb-4">
-                <div className="flex-1 flex flex-col items-center gap-5 min-h-0">
-                    <h1>Sign in</h1>
-                    <div>
-                        <Auth
-                            supabaseClient={supabaseClient}
-                        />
-                    </div>
+        <main className="flex items-center justify-center pt-16 pb-4">
+            <div className="flex-1 flex flex-col items-center gap-5 min-h-0">
+                <h1>Sign in</h1>
+                <div>
+
                 </div>
-            </main>
-        )
+            </div>
+        </main>
     );
 }
