@@ -1,11 +1,16 @@
 import type {Route} from "./+types/login";
+import {Form} from "react-router";
 import {createServerClient, parseCookieHeader, serializeCookieHeader} from "@supabase/ssr";
 
 export function meta({}: Route.MetaArgs) {
     return [{title: "Login"}, {name: "description", content: "login"}];
 }
 
-export async function loader({request}: any) {
+export async function action({request,}: Route.ClientActionArgs) {
+    let formData = await request.formData();
+    const form_email = formData.get("email");
+    const form_password = formData.get("password");
+
     const headers = new Headers();
 
     // Supabase Client erstellen mit Cookie-Unterstützung
@@ -26,10 +31,9 @@ export async function loader({request}: any) {
         }
     );
 
-    // Benutzer mit E-Mail und Passwort anmelden
     const {data, error} = await supabase.auth.signInWithPassword({
-        email: "demo@demo.demo",
-        password: "demo",
+        email: form_email as string,
+        password: form_password as string,
     });
 
     if (error) {
@@ -40,14 +44,26 @@ export async function loader({request}: any) {
     });
 }
 
-export default function LoginPage({loaderData}: Route.ComponentProps) {
+export default function LoginPage({loaderData, actionData}: {
+    loaderData: Route.ComponentProps,
+    actionData: { title: string }
+}) {
     const data = loaderData;
-    // console.log(JSON.parse(data));
     return (
         <main className="flex items-center justify-center pt-16 pb-4">
             <div className="flex-1 flex flex-col items-center gap-5 min-h-0">
                 <h1>Sign in</h1>
-                <div></div>
+                <div>
+                    <h1>Project</h1>
+                    <Form method="post">
+                        <input type="email" name="email" placeholder="email"/>
+                        <input type="password" name="password" placeholder="password"/>
+                        <button type="submit">Submit</button>
+                    </Form>
+                    {actionData ? (
+                        <p>{actionData.title} updated</p>
+                    ) : null}
+                </div>
             </div>
         </main>
     );
