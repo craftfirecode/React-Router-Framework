@@ -4,8 +4,6 @@ import {createServerClient, parseCookieHeader} from "@supabase/ssr";
 
 
 export async function loader({request}: Route.LoaderArgs) {
-    const headers = new Headers();
-
     const supabase = createServerClient(
         import.meta.env.VITE_SUPABASE_API_URL as string,
         import.meta.env.VITE_SUPABASE_ANON_KEY as string,
