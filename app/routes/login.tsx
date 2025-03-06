@@ -42,7 +42,7 @@ export async function loader({request}: any) {
 
 export default function LoginPage({loaderData}: Route.ComponentProps) {
     const data = loaderData;
-    console.log(JSON.parse(data));
+    // console.log(JSON.parse(data));
     return (
         <main className="flex items-center justify-center pt-16 pb-4">
             <div className="flex-1 flex flex-col items-center gap-5 min-h-0">

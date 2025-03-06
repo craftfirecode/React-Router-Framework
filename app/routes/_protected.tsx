@@ -1,26 +1,36 @@
-import {useContext, useEffect} from "react";
 import {Outlet, redirect} from "react-router";
-import {SupabaseAuthContext} from "@/lib/supabaseAuthProvider";
 import type {Route} from "../../.react-router/types/app/routes/+types/_protected.account._index";
+import {createServerClient, parseCookieHeader, serializeCookieHeader} from "@supabase/ssr";
 
 
-export async function loader({params}: Route.LoaderArgs) {
-    return redirect("/abc");
+export async function loader({request}: Route.LoaderArgs) {
+    const headers = new Headers();
+
+    const supabase = createServerClient(
+        import.meta.env.VITE_SUPABASE_API_URL as string,
+        import.meta.env.VITE_SUPABASE_ANON_KEY as string,
+        {
+            cookies: {
+                getAll() {
+                    return parseCookieHeader(request.headers.get("Cookie") ?? "");
+                },
+                setAll(cookiesToSet) {
+                    cookiesToSet.forEach(({name, value, options}) =>
+                        headers.append("Set-Cookie", serializeCookieHeader(name, value, options))
+                    );
+                },
+            },
+        }
+    );
+
+    const authUser = await supabase.auth.getUser();
+    if (authUser.data.user === null) {
+        return redirect("/login");
+    } else {
+        return authUser
+    }
 }
 
 export default function ProtectedAccountOutlet() {
-    const {user, isAuthenticating} = useContext(SupabaseAuthContext);
-
-    useEffect(() => {
-        if (!isAuthenticating && !user) {
-            localStorage.setItem("from", location.href);
-            location.replace("/login");
-        }
-    }, [isAuthenticating]);
-
-    if (!user) {
-        return null;
-    }
-
     return <Outlet/>;
 }
