@@ -1,7 +1,4 @@
-import {useContext} from "react";
-
 import type {Route} from "./+types/_protected.account._index";
-import {SupabaseAuthContext} from "@/lib/supabaseAuthProvider";
 import {LogoutButton} from "@/components/supabase/LogoutButton";
 import {Link} from "react-router";
 import {Button} from "@/components/ui/button";
@@ -25,23 +22,19 @@ export async function loader({params}: Route.LoaderArgs) {
 
 export default function AccountPage({loaderData}: Route.ComponentProps) {
     const {title} = loaderData
-    const {user} = useContext(SupabaseAuthContext);
     return (
-        user && (
-            <main className="flex items-center justify-center pt-16 pb-4">
-                <div className="flex-1 flex flex-col items-center gap-16 min-h-0">
-                    <b>Welcome {user?.email}!</b>
-                    {title}
-                    <div>
-                        <Link to={"/account/invoice"}>
-                            <Button>Invoice</Button>
-                        </Link>
-                    </div>
-                    <div>
-                        <LogoutButton/>
-                    </div>
+        <main className="flex items-center justify-center pt-16 pb-4">
+            <div className="flex-1 flex flex-col items-center gap-16 min-h-0">
+                {title}
+                <div>
+                    <Link to={"/account/invoice"}>
+                        <Button>Invoice</Button>
+                    </Link>
                 </div>
-            </main>
-        )
+                <div>
+                    <LogoutButton/>
+                </div>
+            </div>
+        </main>
     );
 }

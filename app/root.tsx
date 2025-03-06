@@ -4,7 +4,6 @@ import "./app.css";
 import MegaMenu from "@/components/ui/mega-menu";
 import {MegaMenuBreadcrumb} from "@/components/ui/mega-menu-breadcrumb";
 import LayoutContainer from "@/layout/layoutContainer";
-import {SupabaseAuthProvider} from "@/lib/supabaseAuthProvider";
 import {FooterContainer} from "@/layout/footerContainer";
 
 export function Layout({children}: { children: React.ReactNode }) {
@@ -42,9 +41,7 @@ export function Layout({children}: { children: React.ReactNode }) {
                 </LayoutContainer>
             </div>
         )}
-        <SupabaseAuthProvider>
-            {children}
-        </SupabaseAuthProvider>
+        {children}
         <FooterContainer/>
         <ScrollRestoration/>
         <Scripts/>
