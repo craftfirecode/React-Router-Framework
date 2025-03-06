@@ -1,6 +1,6 @@
 import {Outlet, redirect} from "react-router";
 import type {Route} from "../../.react-router/types/app/routes/+types/_protected.account._index";
-import {createServerClient, parseCookieHeader, serializeCookieHeader} from "@supabase/ssr";
+import {createServerClient, parseCookieHeader} from "@supabase/ssr";
 
 
 export async function loader({request}: Route.LoaderArgs) {
@@ -13,12 +13,7 @@ export async function loader({request}: Route.LoaderArgs) {
             cookies: {
                 getAll() {
                     return parseCookieHeader(request.headers.get("Cookie") ?? "");
-                },
-                setAll(cookiesToSet) {
-                    cookiesToSet.forEach(({name, value, options}) =>
-                        headers.append("Set-Cookie", serializeCookieHeader(name, value, options))
-                    );
-                },
+                }
             },
         }
     );
