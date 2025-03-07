@@ -1,6 +1,10 @@
 import type {Route} from "./+types/login";
-import {Form} from "react-router";
 import {createServerClient, parseCookieHeader, serializeCookieHeader} from "@supabase/ssr";
+import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "@/components/ui/card";
+import {Label} from "@/components/ui/label";
+import {Input} from "@/components/ui/input";
+import {Button} from "@/components/ui/button";
+import LayoutContainer from "@/layout/layoutContainer";
 
 export function meta({}: Route.MetaArgs) {
     return [{title: "Login"}, {name: "description", content: "login"}];
@@ -50,21 +54,54 @@ export default function LoginPage({loaderData, actionData}: {
 }) {
     const data = loaderData;
     return (
-        <main className="flex items-center justify-center pt-16 pb-4">
-            <div className="flex-1 flex flex-col items-center gap-5 min-h-0">
-                <h1>Sign in</h1>
-                <div>
-                    <h1>Project</h1>
-                    <Form method="post">
-                        <input type="email" name="email" placeholder="email"/>
-                        <input type="password" name="password" placeholder="password"/>
-                        <button type="submit">Submit</button>
-                    </Form>
-                    {actionData ? (
-                        <p>{actionData.title} updated</p>
-                    ) : null}
-                </div>
+        <LayoutContainer className="flex justify-center">
+            <div className="flex flex-col gap-6 w-[450px]">
+                <Card>
+                    <CardHeader>
+                        <CardTitle className="text-2xl">Login</CardTitle>
+                        <CardDescription>
+                            Enter your email below to login to your account
+                        </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                        <form method="post">
+                            <div className="flex flex-col gap-6">
+                                <div className="grid gap-2">
+                                    <Label htmlFor="email">Email</Label>
+                                    <Input
+                                        id="email"
+                                        type="email"
+                                        name="email"
+                                        placeholder="m@example.com"
+                                        required
+                                    />
+                                </div>
+                                <div className="grid gap-2">
+                                    <div className="flex items-center">
+                                        <Label htmlFor="password">Password</Label>
+                                        <a
+                                            href="#"
+                                            className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
+                                        >
+                                            Forgot your password?
+                                        </a>
+                                    </div>
+                                    <Input id="password" name="password" type="password" required/>
+                                </div>
+                                <Button type="submit" className="w-full">
+                                    Login
+                                </Button>
+                            </div>
+                            <div className="mt-4 text-center text-sm">
+                                Don&apos;t have an account?{" "}
+                                <a href="#" className="underline underline-offset-4">
+                                    Sign up
+                                </a>
+                            </div>
+                        </form>
+                    </CardContent>
+                </Card>
             </div>
-        </main>
+        </LayoutContainer>
     );
 }
