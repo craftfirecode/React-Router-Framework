@@ -15,7 +15,7 @@ export default function MegaMenu() {
     return (
         <div className="container mx-auto px-5">
             <nav
-                className="bg-[#7c85ffdb] relative z-1 p-4 m-4 rounded  mx-auto flex items-center justify-between">
+                className="bg-white shadow border relative z-1 p-4 m-4 rounded  mx-auto flex items-center justify-between">
                 <div className="flex items-center gap-4">
                     <Link to="/">
                         <img src="/brand.png" className="h-[20px]" alt="Logo"/>
@@ -23,21 +23,21 @@ export default function MegaMenu() {
                     <div className="hidden lg:flex gap-4">
                         <NavLink
                             className={({isActive}) =>
-                                isActive ? "text-white" : "text-black transition-colors duration-450 hover:text-white"
+                                isActive ? "text-black" : "text-gray-500 transition-colors duration-450 hover:text-black"
                             }
                             to={"/"}>
                             Home
                         </NavLink>
                         <NavLink
                             className={({isActive}) =>
-                                isActive ? "text-white" : "text-black transition-colors duration-450 hover:text-white"
+                                isActive ? "text-black" : "text-gray-500 transition-colors duration-450 hover:text-black"
                             }
                             to={"/About"}>
                             About
                         </NavLink>
                         <NavLink
                             className={({isActive}) =>
-                                isActive ? "text-white" : "text-black transition-colors duration-450 hover:text-white"
+                                isActive ? "text-black" : "text-gray-500 transition-colors duration-450 hover:text-black"
                             }
                             to={"/team"}>
                             Team

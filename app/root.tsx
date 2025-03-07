@@ -20,30 +20,34 @@ export function Layout({children}: { children: React.ReactNode }) {
             <Links/>
         </head>
         <body>
-        {isIndexPage ? (
-            <div className="absolute start-0 right-0">
+        <div className="flex flex-col min-h-screen">
+            {isIndexPage ? (
+                <div className="absolute start-0 right-0">
+                    <MegaMenu/>
+                </div>
+            ) : (
                 <MegaMenu/>
+            )}
+            {isAccountPage && (
+                <div className="mb-5">
+                    <LayoutContainer className="my-0">
+                        <MegaMenuBreadcrumb/>
+                    </LayoutContainer>
+                </div>
+            )}
+            {isBlogPage && (
+                <div className="mb-5">
+                    <LayoutContainer className="my-0">
+                        <MegaMenuBreadcrumb/>
+                    </LayoutContainer>
+                </div>
+            )}
+            <div className="flex-1">
+                {children}
             </div>
-        ) : (
-            <MegaMenu/>
-        )}
-        {isAccountPage && (
-            <div className="mb-5">
-                <LayoutContainer className="my-0">
-                    <MegaMenuBreadcrumb/>
-                </LayoutContainer>
-            </div>
-        )}
-        {isBlogPage && (
-            <div className="mb-5">
-                <LayoutContainer className="my-0">
-                    <MegaMenuBreadcrumb/>
-                </LayoutContainer>
-            </div>
-        )}
-        {children}
-        <FooterContainer/>
-        <ScrollRestoration/>
+            <FooterContainer/>
+            <ScrollRestoration/>
+        </div>
         <Scripts/>
         </body>
         </html>
