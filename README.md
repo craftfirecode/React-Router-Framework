@@ -11,8 +11,8 @@ includes a fully server-side rendered authentication system using Supabase.
 - 🔄 Data loading and mutations
 - 🔒 TypeScript by default
 - 🎉 TailwindCSS for styling
-- 🎉 shadcn/ui for components
-- 🔒 fully SSR authentication system built with Supabase
+- 🎉 Shadcn/ui for components
+- 🔒 Fully SSR authentication system built with Supabase
 - 📖 [React Router docs](https://reactrouter.com/)
 - 📖 [Supabase SSR](https://shorturl.at/JC2Ak)
 
