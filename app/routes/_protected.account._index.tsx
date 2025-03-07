@@ -1,14 +1,29 @@
 import type {Route} from "./+types/_protected.account._index";
-import {LogoutButton} from "@/components/supabase/LogoutButton";
-import {Link} from "react-router";
+import {Form, Link} from "react-router";
 import {Button} from "@/components/ui/button";
 import {ApiPlaceholder} from "~/api/placeholder";
+import {createServerClient, parseCookieHeader} from "@supabase/ssr";
 
 export function meta({}: Route.MetaArgs) {
     return [
         {title: "Account"},
         {name: "description", content: "Your account"},
     ];
+}
+
+export async function action({request}: Route.ActionArgs) {
+    const supabase = createServerClient(
+        import.meta.env.VITE_SUPABASE_API_URL as string,
+        import.meta.env.VITE_SUPABASE_ANON_KEY as string,
+        {
+            cookies: {
+                getAll: () => {
+                    return parseCookieHeader(request.headers.get("Cookie") ?? "");
+                },
+            }
+        }
+    );
+    const authUser = await supabase.auth.signOut();
 }
 
 export async function loader({params}: Route.LoaderArgs) {
@@ -31,9 +46,9 @@ export default function AccountPage({loaderData}: Route.ComponentProps) {
                         <Button>Invoice</Button>
                     </Link>
                 </div>
-                <div>
-                    <LogoutButton/>
-                </div>
+                <Form method="post">
+                    <Button variant="outline" type="submit">Logout</Button>
+                </Form>
             </div>
         </main>
     );
