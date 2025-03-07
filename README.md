@@ -1,10 +1,7 @@
-https://supabase.com/docs/guides/auth/server-side/creating-a-client?queryGroups=framework&framework=remix&queryGroups=environment&environment=server-client
+# Welcome to CraftFire React Router 7 Framework Template!
 
-# Welcome to React Router!
-
-A modern, production-ready template for building full-stack React applications using React Router.
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+A modern, production-ready template for building full-stack React applications with React Router. Additionally, it
+includes a fully server-side rendered authentication system using Supabase.
 
 ## Features
 
@@ -14,7 +11,10 @@ A modern, production-ready template for building full-stack React applications u
 - 🔄 Data loading and mutations
 - 🔒 TypeScript by default
 - 🎉 TailwindCSS for styling
+- 🎉 shadcn/ui for components
+- 🔒 fully SSR authentication system built with Supabase
 - 📖 [React Router docs](https://reactrouter.com/)
+- 📖 [Supabase SSR](https://shorturl.at/JC2Ak)
 
 ## Getting Started
 
