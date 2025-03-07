@@ -1,4 +1,3 @@
-import LayoutContainer from "@/layout/layoutContainer";
 import type {Route} from "./+types/blog.$id";
 import {useParams} from "react-router";
 import {ApiPlaceholder} from "~/api/placeholder";
@@ -24,11 +23,9 @@ export default function BlogIndex({loaderData}: Route.ComponentProps) {
     const {id} = useParams();
     return (
         <div>
-            <LayoutContainer>
-                <h1>Title: {data.title}</h1>
-                <h1>ID: {data.id}</h1>
-                useParams: {id}
-            </LayoutContainer>
+            <h1>Title: {data.title}</h1>
+            <h1>ID: {data.id}</h1>
+            useParams: {id}
         </div>
     );
 }

@@ -1,11 +1,11 @@
 import {Outlet} from "react-router";
+import LayoutContainer from "@/layout/layoutContainer";
 
 export default function ProjectLayout() {
     return (
-        <div>
-            <main className="blogLayout">
-                <Outlet/>
-            </main>
-        </div>
+        <LayoutContainer>
+            <Outlet/>
+        </LayoutContainer>
     );
 }
+

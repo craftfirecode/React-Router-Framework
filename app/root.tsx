@@ -42,9 +42,7 @@ export function Layout({children}: { children: React.ReactNode }) {
                     </LayoutContainer>
                 </div>
             )}
-            <div className="flex-1">
-                {children}
-            </div>
+            {children}
             <FooterContainer/>
             <ScrollRestoration/>
         </div>

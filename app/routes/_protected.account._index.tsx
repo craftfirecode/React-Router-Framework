@@ -3,6 +3,7 @@ import {Form, Link} from "react-router";
 import {Button} from "@/components/ui/button";
 import {ApiPlaceholder} from "~/api/placeholder";
 import {createServerClient, parseCookieHeader} from "@supabase/ssr";
+import LayoutContainer from "@/layout/layoutContainer";
 
 export function meta({}: Route.MetaArgs) {
     return [
@@ -38,18 +39,21 @@ export async function loader({params}: Route.LoaderArgs) {
 export default function AccountPage({loaderData}: Route.ComponentProps) {
     const {title} = loaderData
     return (
-        <main className="flex items-center justify-center pt-16 pb-4">
-            <div className="flex-1 flex flex-col items-center gap-16 min-h-0">
-                {title}
-                <div>
-                    <Link to={"/account/invoice"}>
-                        <Button>Invoice</Button>
-                    </Link>
+        <LayoutContainer>
+            <div className="flex items-center justify-center pt-16 pb-4">
+                <div className="flex-1 flex flex-col items-center gap-16 min-h-0">
+                    {title}
+                    <div>
+                        <Link to={"/account/invoice"}>
+                            <Button>Invoice</Button>
+                        </Link>
+                    </div>
+                    <Form method="post">
+                        <Button variant="outline" type="submit">Logout</Button>
+                    </Form>
                 </div>
-                <Form method="post">
-                    <Button variant="outline" type="submit">Logout</Button>
-                </Form>
             </div>
-        </main>
+        </LayoutContainer>
+
     );
 }

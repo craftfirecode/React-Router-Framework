@@ -61,7 +61,7 @@ export default function LoginPage({actionData}: { actionData: Route.ComponentPro
     }, [actionData]);
 
     return (
-        <LayoutContainer className="flex justify-center">
+        <LayoutContainer className="items-center justify-center">
             <div className="flex flex-col gap-6 w-[450px]">
                 <Card>
                     <CardHeader>
