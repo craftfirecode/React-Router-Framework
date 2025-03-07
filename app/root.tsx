@@ -1,6 +1,6 @@
 import {isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration, useLocation,} from "react-router";
 import type {Route} from "./+types/root";
-import "./app.css";
+import "@/app.css";
 import MegaMenu from "@/components/ui/mega-menu";
 import {MegaMenuBreadcrumb} from "@/components/ui/mega-menu-breadcrumb";
 import LayoutContainer from "@/layout/layoutContainer";
