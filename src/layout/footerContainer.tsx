@@ -6,7 +6,7 @@ export const FooterContainer = () => {
 
 
         <footer className="container mx-auto px-5">
-            <div className="rounded-lg shadow-sm mb-4 dark:bg-gray-800">
+            <div className="rounded-lg shadow-sm my-4 dark:bg-gray-800">
                 <div className="w-full p-4 flex gap-4">
                     <NavLink
                         className={({isActive}) =>
