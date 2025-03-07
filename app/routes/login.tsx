@@ -5,6 +5,8 @@ import {Label} from "@/components/ui/label";
 import {Input} from "@/components/ui/input";
 import {Button} from "@/components/ui/button";
 import LayoutContainer from "@/layout/layoutContainer";
+import {useNavigate} from "react-router";
+import {useEffect} from "react";
 
 export function meta({}: Route.MetaArgs) {
     return [{title: "Login"}, {name: "description", content: "login"}];
@@ -48,11 +50,16 @@ export async function action({request,}: Route.ClientActionArgs) {
     });
 }
 
-export default function LoginPage({loaderData, actionData}: {
-    loaderData: Route.ComponentProps,
-    actionData: { title: string }
-}) {
-    const data = loaderData;
+export default function LoginPage({actionData}: { actionData: Route.ComponentProps }) {
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (actionData) {
+            navigate("/account");
+        }
+    }, [actionData]);
+
     return (
         <LayoutContainer className="flex justify-center">
             <div className="flex flex-col gap-6 w-[450px]">
